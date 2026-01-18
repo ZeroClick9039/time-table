@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-body: 'Inter', sans-serif;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  /* Soft, productivity-focused palette (Light Mode) */
+  --background: 210 20% 98%;    /* Soft white/gray */
+  --foreground: 222 47% 11%;    /* Deep navy text */
+  
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  
+  --primary: 221 83% 53%;       /* Vibrant Blue */
+  --primary-foreground: 210 40% 98%;
+  
+  --secondary: 210 40% 96%;     /* Soft gray-blue */
+  --secondary-foreground: 222 47% 11%;
+  
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  
+  --accent: 262 83% 58%;        /* Purple accent */
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 210 40% 98%;
+
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 221 83% 53%;
+  
+  --radius: 0.75rem;
+}
+
+.dark {
+  /* Deep, focus-friendly palette (Dark Mode) */
+  --background: 222 47% 11%;    /* Deep navy bg */
+  --foreground: 210 40% 98%;    /* Soft white text */
+  
+  --card: 217 33% 17%;
+  --card-foreground: 210 40% 98%;
+  
+  --popover: 217 33% 17%;
+  --popover-foreground: 210 40% 98%;
+  
+  --primary: 217 91% 60%;       /* Brighter Blue */
+  --primary-foreground: 222 47% 11%;
+  
+  --secondary: 217 33% 20%;     /* Darker secondary */
+  --secondary-foreground: 210 40% 98%;
+  
+  --muted: 217 33% 20%;
+  --muted-foreground: 215 20% 65%;
+  
+  --accent: 263 70% 50%;
+  --accent-foreground: 210 40% 98%;
+  
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 210 40% 98%;
+  
+  --border: 217 33% 20%;
+  --input: 217 33% 20%;
+  --ring: 224 76% 48%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-body);
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    @apply tracking-tight;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-muted-foreground/20 rounded-full hover:bg-muted-foreground/40 transition-colors;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  @apply bg-background/80 backdrop-blur-md border border-white/10 shadow-sm;
+}
+.glass-card {
+  @apply bg-card/60 backdrop-blur-sm border border-border/50 shadow-sm hover:shadow-md transition-all duration-300;
+}
